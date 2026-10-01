@@ -30,6 +30,22 @@ module.exports = {
     'brand2-lt': '#7FB0C4',
     'brand2-dk': '#163847',
     'on-brand2': '#EAF4F8',
+    /* Dark ground retinted from the direction blue-black (#0B1220) to the
+       petrol navy of the logo itself (logo.jpeg rgb(8,34,47)). Blue-black with
+       lime and blue-grey chips read as a stock dark template; petrol and lime
+       is the client's own pairing. Greys are de-blued to match. */
+    ink: '#0A1F28', 'ink-rgb': '10,31,40',
+    'ink-1': '#102A34',
+    'ink-2': '#173540',
+    'ink-deep': '#061419', 'ink-deep-rgb': '6,20,25',
+    'on-ink': '#EEF3F2',
+    'on-ink-2': '#C8D3D2',
+    'on-ink-muted': '#94A6A6',
+    'on-ink-faint': '#687B7C',
+    'band-bg': '#081A21',
+    'band-g1': '#0F2A33',
+    'band-g2': '#122614',
+    'chip-core-bg': '#1B3B45',
     'hero-logo': 'clamp(260px,46vw,560px)',
     'hero-logo-sm': 'min(84vw,340px)',
   },

@@ -59,6 +59,24 @@
   .svc-num{top:9px;right:9px;font-size:10.5px;padding:3px 8px}
   .svc-go{margin-top:8px;font-size:12.4px}
 }
+/* The areas band surface is the only dark --bg not built from the ink tokens. */
+.s-brand{--bg:#0C2029}
+/* On the job: flat petrol, no coloured haze. The tags read as a job sheet
+   (lime tick, plain text, hairline above) rather than blue pills. The tick is
+   two CSS borders, not SVG path data. */
+.trans{background-image:none;border-top:1px solid rgba(255,255,255,.06)}
+.zig-copy .num{display:flex;align-items:center;gap:12px;color:var(--brand)}
+.zig-copy .num::after{content:"";width:34px;height:2px;background:var(--brand);border-radius:2px}
+.zig-copy p{color:var(--on-ink-2)}
+.zig-tags{display:grid;grid-template-columns:repeat(2,max-content);gap:11px 28px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.10)}
+.zig-tags span{display:flex;align-items:center;gap:10px;padding:0;background:none;border:0;border-radius:0;font-size:14px;font-weight:600;color:var(--on-ink)}
+.zig-tags span::before{content:"";flex:0 0 auto;width:5px;height:10px;margin:-3px 3px 0 4px;border:solid var(--brand);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.zig-media{border-color:rgba(255,255,255,.12)}
+@media(max-width:680px){
+  .zig-tags{grid-template-columns:1fr 1fr;gap:9px 14px;margin-top:14px;padding-top:14px}
+  .zig-tags span{font-size:12.8px;padding:0}
+  .zig-tags span:nth-child(n+4){display:flex}
+}
 </style>
 
 <!-- ================= NAV ================= -->
