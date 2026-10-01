@@ -23,6 +23,42 @@
    no pairs were supplied. Same 4:5 box the slider uses, square on mobile. */
 .zig-media img.zig-photo{width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover}
 @media(max-width:860px){.zig-media img.zig-photo{aspect-ratio:1/1}}
+/* Services as photo cards. Each card is its own job photograph under an ink
+   fade, so the first scroll after the hero is pictures, not a block of text
+   (HOUSE-RULES: visual proof before text). None of the six photographs is on
+   screen anywhere near this section: two are behind "View all", the rest sit
+   in About and Areas far below. The whole card is the link (.svc-go::after). */
+.svc-grid{gap:16px}
+.svc.svc-photo{padding:0;border:0;border-radius:var(--r-lg);background:var(--ink);min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;box-shadow:var(--sh)}
+.svc-photo .svc-bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transform:scale(1.02);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.svc-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--ink-rgb),.06) 0%,rgba(var(--ink-rgb),.30) 34%,rgba(var(--ink-rgb),.90) 70%,rgba(var(--ink-deep-rgb),.97) 100%)}
+.svc-photo::before{height:3px;background:var(--brand);z-index:1}
+.svc.svc-photo:hover{background:var(--ink);transform:translateY(-5px);box-shadow:var(--sh-lg)}
+.svc-photo:hover .svc-bg{transform:scale(1.09)}
+.svc-body{padding:22px 22px 20px}
+.svc-photo .svc-ico{background:var(--brand);background-image:none;border:0;color:#08222F;box-shadow:0 8px 22px rgba(var(--brand-rgb),.38);margin-bottom:13px}
+.svc-photo h3{color:#fff;font-size:20px;letter-spacing:-.01em;margin-bottom:7px}
+.svc-photo p{color:var(--on-ink-2);font-size:14px;line-height:1.55}
+.svc-num{position:absolute;top:14px;right:14px;z-index:1;font-family:var(--font-display);font-weight:800;font-size:12.5px;letter-spacing:.08em;color:#fff;background:rgba(var(--ink-rgb),.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:5px 11px}
+.svc-go{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--brand-lt)}
+.svc-go::after{content:"";position:absolute;inset:0;z-index:2}
+.svc-go .icon{width:16px;height:16px;transition:transform .25s ease}
+.svc-photo:hover .svc-go .icon{transform:translateX(5px)}
+.svc-go:focus-visible{outline:none}
+.svc-go:focus-visible::after{outline:3px solid var(--brand);outline-offset:-3px;border-radius:var(--r-lg)}
+@media(max-width:680px){
+  .svc-grid{gap:9px}
+  .svc.svc-photo{min-height:210px;border-radius:12px}
+  .svc-body{padding:13px 12px 13px}
+  .svc-photo .svc-ico{width:34px;height:34px;border-radius:10px;margin-bottom:8px}
+  .svc-photo .svc-ico .icon{width:17px;height:17px}
+  .svc-photo h3{font-size:14.8px;line-height:1.16;margin-bottom:5px}
+  /* Two-up on a phone leaves ~150px of line: the sentence would clamp mid-way.
+     The tile carries the photo, the title and the call to action instead. */
+  .svc-photo p{display:none}
+  .svc-num{top:9px;right:9px;font-size:10.5px;padding:3px 8px}
+  .svc-go{margin-top:8px;font-size:12.4px}
+}
 </style>
 
 <!-- ================= NAV ================= -->
@@ -146,35 +182,65 @@
       <p class="lede">From a slipped slate to a full re-roof, and the leadwork, guttering and scaffolding that go with it.</p>
     </div>
     <div class="svc-grid">
-      <article class="svc rv">
-        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg></div>
-        <h3>Roof Repairs</h3>
-        <p>Slipped slates and tiles, leaks, storm damage and failed flashing put right, usually in a single visit.</p>
+      <article class="svc svc-photo rv">
+        <div class="svc-bg" style="background-image:url('{{ASSET:svc1.webp}}')" role="img" aria-label="A weathered slate roof and brick chimney with patched and slipped slates"></div>
+        <span class="svc-num">01</span>
+        <div class="svc-body">
+          <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg></div>
+          <h3>Roof Repairs</h3>
+          <p>Slipped slates and tiles, leaks, storm damage and failed flashing put right, usually in a single visit.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for roof repairs">Get a quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </article>
-      <article class="svc rv">
-        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
-        <h3>New Roofs and Re-roofing</h3>
-        <p>Stripped back to the timbers and rebuilt with new membrane, treated battens and fresh tiles or slates.</p>
+      <article class="svc svc-photo rv">
+        <div class="svc-bg" style="background-image:url('{{ASSET:svc2.webp}}')" role="img" aria-label="A house roof stripped and covered in new blue membrane and battens, scaffold along the front"></div>
+        <span class="svc-num">02</span>
+        <div class="svc-body">
+          <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <h3>New Roofs and Re-roofing</h3>
+          <p>Stripped back to the timbers and rebuilt with new membrane, treated battens and fresh tiles or slates.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for a new roof">Get a quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </article>
-      <article class="svc rv">
-        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></div>
-        <h3>Flat Roofing</h3>
-        <p>Rubber and fibreglass flat roofs for extensions, garages and dormers, with rooflights fitted as part of the job.</p>
+      <article class="svc svc-photo rv">
+        <div class="svc-bg" style="background-image:url('{{ASSET:svc3.webp}}')" role="img" aria-label="A finished flat roof on an extension with four square rooflights"></div>
+        <span class="svc-num">03</span>
+        <div class="svc-body">
+          <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg></div>
+          <h3>Flat Roofing</h3>
+          <p>Rubber and fibreglass flat roofs for extensions, garages and dormers, with rooflights fitted as part of the job.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for a flat roof">Get a quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </article>
-      <article class="svc rv">
-        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
-        <h3>Chimneys and Leadwork</h3>
-        <p>Repointing, rebuilds, cowls and new lead flashing where the old work has let water in.</p>
+      <article class="svc svc-photo rv">
+        <div class="svc-bg" style="background-image:url('{{ASSET:svc4.webp}}')" role="img" aria-label="A lead valley running between two slate roof slopes beside a red brick gable"></div>
+        <span class="svc-num">04</span>
+        <div class="svc-body">
+          <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
+          <h3>Chimneys and Leadwork</h3>
+          <p>Repointing, rebuilds, cowls and new lead flashing where the old work has let water in.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for chimney or lead work">Get a quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </article>
-      <article class="svc rv">
-        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg></div>
-        <h3>Fascias, Soffits and Guttering</h3>
-        <p>UPVC fascias, soffits, dry verges and guttering that stop water tracking back into the walls.</p>
+      <article class="svc svc-photo rv">
+        <div class="svc-bg" style="background-image:url('{{ASSET:svc5.webp}}')" role="img" aria-label="New dry verge and white bargeboard on the gable of a red brick house"></div>
+        <span class="svc-num">05</span>
+        <div class="svc-body">
+          <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg></div>
+          <h3>Fascias, Soffits and Guttering</h3>
+          <p>UPVC fascias, soffits, dry verges and guttering that stop water tracking back into the walls.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for fascias and guttering">Get a quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </article>
-      <article class="svc rv">
-        <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="8" rx="1"/><path d="M17 14v7"/><path d="M7 14v7"/><path d="M17 3v3"/><path d="M7 3v3"/><path d="M10 14 2.3 6.3"/><path d="m14 6 7.7 7.7"/><path d="m8 6 8 8"/></svg></div>
-        <h3>Scaffolding</h3>
-        <p>Scaffold and access towers put up for the roof work, from a single chimney to a four storey block.</p>
+      <article class="svc svc-photo rv">
+        <div class="svc-bg" style="background-image:url('{{ASSET:svc6.webp}}')" role="img" aria-label="Scaffold around a two storey period house with a slate roof"></div>
+        <span class="svc-num">06</span>
+        <div class="svc-body">
+          <div class="svc-ico"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="8" rx="1"/><path d="M17 14v7"/><path d="M7 14v7"/><path d="M17 3v3"/><path d="M7 3v3"/><path d="M10 14 2.3 6.3"/><path d="m14 6 7.7 7.7"/><path d="m8 6 8 8"/></svg></div>
+          <h3>Scaffolding</h3>
+          <p>Scaffold and access towers put up for the roof work, from a single chimney to a four storey block.</p>
+          <a class="svc-go" href="#contact" aria-label="Get a quote for scaffolding">Get a quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
       </article>
     </div>
   </div>
@@ -249,9 +315,9 @@
       <figure><img loading="lazy" src="{{ASSET:g2.webp}}" alt="A new flat roof with two glass rooflights set in it, slate roofs either side"><figcaption>Flat roof with rooflights</figcaption></figure>
       <figure><img loading="lazy" src="{{ASSET:g3.webp}}" alt="A tall red scaffold tower against a four storey apartment block, a roofer working at the top"><figcaption>Scaffold tower to a four storey roof</figcaption></figure>
       <figure><img loading="lazy" src="{{ASSET:g4.webp}}" alt="New black fascia, guttering and downpipe on a white rendered house"><figcaption>Black fascia and guttering</figcaption></figure>
-      <figure><img loading="lazy" src="{{ASSET:g5.webp}}" alt="A finished flat roof on an extension with four square rooflights"><figcaption>Extension flat roof</figcaption></figure>
+      <figure class="more"><img loading="lazy" src="{{ASSET:g5.webp}}" alt="A finished flat roof on an extension with four square rooflights"><figcaption>Extension flat roof</figcaption></figure>
       <figure class="big more"><img loading="lazy" src="{{ASSET:g6.webp}}" alt="A semi-detached house with its roof stripped and covered in new blue membrane and battens, scaffold along the front"><figcaption>Re-roof under way</figcaption></figure>
-      <figure class="more"><img loading="lazy" src="{{ASSET:g7.webp}}" alt="Scaffold tower up the front of a red brick house to reach the chimney"><figcaption>Access to the chimney</figcaption></figure>
+      <figure><img loading="lazy" src="{{ASSET:g7.webp}}" alt="Scaffold tower up the front of a red brick house to reach the chimney"><figcaption>Access to the chimney</figcaption></figure>
       <figure class="more"><img loading="lazy" src="{{ASSET:g8.webp}}" alt="Scaffold across the front of a terraced house, the street coned off below"><figcaption>Terraced house scaffolded</figcaption></figure>
       <figure class="more"><img loading="lazy" src="{{ASSET:g9.webp}}" alt="Scaffold around a two storey period house with a slate roof"><figcaption>Period house scaffolded for the roof</figcaption></figure>
       <figure class="more"><img loading="lazy" src="{{ASSET:g10.webp}}" alt="A weathered slate roof and brick chimney before repair"><figcaption>Slate roof before repair</figcaption></figure>
