@@ -77,6 +77,36 @@
   .zig-tags span{font-size:12.8px;padding:0}
   .zig-tags span:nth-child(n+4){display:flex}
 }
+/* Why choose us, editorial: sticky intro and photo left, numbered list right. */
+.why.why-ed{border-block:0}
+.why-ed-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,6vw,88px);align-items:start}
+.why-ed-intro{position:sticky;top:104px}
+.why-ed-intro .title{text-wrap:balance}
+.why-ed-photo{position:relative;margin:28px 0 26px;aspect-ratio:5/4;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:var(--sh-lg)}
+.why-ed-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.why-ed-photo::before{content:"";position:absolute;left:0;top:0;width:72px;height:4px;background:var(--brand);z-index:1}
+.why-ed-photo figcaption{position:absolute;inset:auto 0 0 0;padding:36px 18px 14px;font-size:13px;font-weight:600;color:#fff;background:linear-gradient(180deg,transparent,rgba(var(--ink-rgb),.88))}
+.why-ed-btns{justify-content:flex-start}
+.why-ed-list{list-style:none;margin:0;padding:0}
+.why-ed-list li{display:grid;grid-template-columns:78px minmax(0,1fr);gap:0 18px;padding:26px 0;border-top:1px solid rgba(255,255,255,.10)}
+.why-ed-list li:first-child{border-top:0;padding-top:4px}
+.why-ed-list li:last-child{padding-bottom:0}
+.why-ed-n{font-family:var(--font-display);font-weight:800;font-size:46px;line-height:.92;letter-spacing:-.03em;color:var(--brand);font-variant-numeric:tabular-nums;transition:transform .25s ease}
+.why-ed-list li:hover .why-ed-n{transform:translateX(4px)}
+.why-ed-list h3{font-size:20px;color:#fff;margin-bottom:7px;letter-spacing:-.01em}
+.why-ed-list p{font-size:15px;line-height:1.62;color:var(--on-ink-2)}
+@media(max-width:860px){
+  .why-ed-grid{grid-template-columns:1fr;gap:26px}
+  .why-ed-intro{position:static}
+  .why-ed-photo{aspect-ratio:16/10;margin:20px 0 18px}
+}
+@media(max-width:680px){
+  .why-ed-btns .btn{flex:1 1 auto}
+  .why-ed-list li{grid-template-columns:46px minmax(0,1fr);gap:0 12px;padding:18px 0}
+  .why-ed-n{font-size:30px}
+  .why-ed-list h3{font-size:16.5px;margin-bottom:5px}
+  .why-ed-list p{font-size:13.8px;line-height:1.55}
+}
 </style>
 
 <!-- ================= NAV ================= -->
@@ -330,45 +360,35 @@
   </div>
 </section>
 
-<!-- ================= WHY ================= -->
-<section class="sec why s-light" id="why">
+<!-- ================= WHY =================
+     Editorial layout rather than the golden 3x2 card grid: the intro, a job
+     photograph and the call buttons hold the left column (sticky on desktop),
+     the six reasons run down the right as a numbered list. Petrol surface, so
+     the page alternates light gallery / dark why / light reviews. -->
+<section class="sec why why-ed s-dark" id="why">
   <div class="wrap">
-    <div class="center rv">
-      <span class="eyebrow">Why choose us</span>
-      <h2 class="title">Done properly, and you can see it</h2>
-      <p class="lede">Most of a roof is out of sight. These are the habits that make the difference a few winters on.</p>
-    </div>
-    <div class="why-grid">
-      <article class="why-card rv">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-        <h3>Free honest quotes</h3>
-        <p>We look at the actual roof, tell you what it needs and what can wait, and put it in writing. No pressure.</p>
-      </article>
-      <article class="why-card rv">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-        <h3>Photographs of the work</h3>
-        <p>You see what was wrong and what was done, even on the parts of the roof you cannot get to yourself.</p>
-      </article>
-      <article class="why-card rv">
-        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="8" rx="1"/><path d="M17 14v7"/><path d="M7 14v7"/><path d="M17 3v3"/><path d="M7 3v3"/><path d="M10 14 2.3 6.3"/><path d="m14 6 7.7 7.7"/><path d="m8 6 8 8"/></svg>
-        <h3>Safe access, every time</h3>
-        <p>Scaffold up wherever the job needs it, so the work is done safely and nobody is balancing on a ladder at the gutter line.</p>
-      </article>
-      <article class="why-card rv">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        <h3>The whole roof, not just the tiles</h3>
-        <p>Battens, membrane, leadwork, fascias and guttering, so the job is finished properly rather than half done.</p>
-      </article>
-      <article class="why-card rv">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
-        <h3>Clean and tidy</h3>
-        <p>Old tiles and felt taken away, the site cleared up and the drive swept before we leave.</p>
-      </article>
-      <article class="why-card rv">
-        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        <h3>Straight answers</h3>
-        <p>If a repair can wait, we say so. If it cannot, we say that too, and tell you what happens if it is left.</p>
-      </article>
+    <div class="why-ed-grid">
+      <div class="why-ed-intro rv">
+        <span class="eyebrow">Why choose us</span>
+        <h2 class="title">Done properly, and you can see it</h2>
+        <p class="lede">Most of a roof is out of sight. These are the habits that make the difference a few winters on.</p>
+        <figure class="why-ed-photo">
+          <img loading="lazy" src="{{ASSET:why.webp}}" alt="A new slate roof with two roof windows fitted, chimney pots behind">
+          <figcaption>New slates and two roof windows</figcaption>
+        </figure>
+        <div class="hero-btns why-ed-btns">
+          <a class="btn btn-primary" href="#contact"><svg class="icon" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>Get a free quote</a>
+          <a class="btn btn-ghost" href="tel:{{PHONE_TEL}}" data-track="call"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>{{PHONE}}</a>
+        </div>
+      </div>
+      <ol class="why-ed-list">
+        <li class="rv"><span class="why-ed-n" aria-hidden="true">01</span><div><h3>Free honest quotes</h3><p>We look at the actual roof, tell you what it needs and what can wait, and put it in writing. No pressure.</p></div></li>
+        <li class="rv"><span class="why-ed-n" aria-hidden="true">02</span><div><h3>Photographs of the work</h3><p>You see what was wrong and what was done, even on the parts of the roof you cannot get to yourself.</p></div></li>
+        <li class="rv"><span class="why-ed-n" aria-hidden="true">03</span><div><h3>Safe access, every time</h3><p>Scaffold up wherever the job needs it, so the work is done safely and nobody is balancing on a ladder at the gutter line.</p></div></li>
+        <li class="rv"><span class="why-ed-n" aria-hidden="true">04</span><div><h3>The whole roof, not just the tiles</h3><p>Battens, membrane, leadwork, fascias and guttering, so the job is finished properly rather than half done.</p></div></li>
+        <li class="rv"><span class="why-ed-n" aria-hidden="true">05</span><div><h3>Clean and tidy</h3><p>Old tiles and felt taken away, the site cleared up and the drive swept before we leave.</p></div></li>
+        <li class="rv"><span class="why-ed-n" aria-hidden="true">06</span><div><h3>Straight answers</h3><p>If a repair can wait, we say so. If it cannot, we say that too, and tell you what happens if it is left.</p></div></li>
+      </ol>
     </div>
   </div>
 </section>
