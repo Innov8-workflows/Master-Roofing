@@ -12,9 +12,8 @@ module.exports = {
      built for a dark ground, which is exactly what this direction gives it. */
   direction: 'contractor-bold',
 
-  /* No town is known, so neither carries one. Add it once the town is confirmed. */
-  title: 'Master Roofing | Roof Repairs, Re-roofing and Flat Roofs',
-  description: 'Roof repairs, re-roofing, flat roofs, chimneys, guttering and scaffolding from Master Roofing. Free no obligation quotes and tidy, careful work.',
+  title: 'Master Roofing | Roofers in Dublin',
+  description: 'Roof repairs, re-roofing, flat roofs, chimneys, guttering and scaffolding across Dublin from Master Roofing. Free no obligation quotes and tidy work.',
 
   /* Brand green sampled from the opaque mark in logo-dark.png: rgb(145,193,18).
      brand-dp is a deeper green so eyebrow text on white clears 5:1. The navy in
@@ -61,10 +60,10 @@ module.exports = {
   /* Where each fact came from, so the next session does not have to re-derive it. */
   facts: {
     NAME:   { value: 'Master Roofing', source: 'the folder name and the logo lockup', seen: '2026-10-01' },
-    TOWN:   { value: null, source: 'not supplied. The housing in the photographs (pebbledash semis, rendered terraces, a seaside apartment block) reads as Ireland or Northern Ireland - CONFIRM, and if it is the Republic, PHONE_WA takes 353 not 44', seen: '2026-10-01' },
-    PHONE:  { value: null, source: 'not supplied', seen: '2026-10-01' },
+    TOWN:   { value: 'Dublin', source: 'Jay, in chat', seen: '2026-10-01' },
+    PHONE:  { value: '+353 83 304 5382', source: 'Jay, in chat. Shown in Irish local format 083 304 5382; tel and wa.me use the +353 form', seen: '2026-10-01' },
     EMAIL:  { value: null, source: 'not supplied', seen: '2026-10-01' },
-    OWNER:  { value: null, source: 'not supplied', seen: '2026-10-01' },
+    OWNER:  { value: 'Michael', source: 'Jay, in chat. First name only, no surname supplied', seen: '2026-10-01' },
     AREAS:  { value: null, source: 'not supplied', seen: '2026-10-01' },
     REVIEWS:{ value: null, source: 'no Google, Facebook or Checkatrade URL supplied; carousel and score block stay placeholder', seen: '2026-10-01' },
     SERVICES: { value: 'repairs, re-roofing, flat roofing, chimneys and leadwork, fascias and guttering, scaffolding', source: 'inferred from the photo file names (chimney-, flat-, repair-, scaffolding-) and what the photographs show - CONFIRM scaffolding is offered as a service', seen: '2026-10-01' },
@@ -74,9 +73,11 @@ module.exports = {
   tokens: {
     BUSINESS: "Master Roofing",
     BUSINESS_SHORT: "Master Roofing",
-    TOWN: '[PLACEHOLDER town]',
-    PHONE: '[PLACEHOLDER]',
-    PHONE_TEL: '[PLACEHOLDER]',
-    PHONE_WA: '[PLACEHOLDER]',
+    TOWN: 'Dublin',
+    PHONE: '083 304 5382',
+    PHONE_TEL: '+353833045382',
+    PHONE_WA: '353833045382',
+    OWNER: 'Michael',
+    OWNER_SHORT: 'Michael',   // WhatsApp prefill opens "Hi Michael, ..."
   },
 };
